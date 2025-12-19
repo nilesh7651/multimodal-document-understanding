@@ -1,0 +1,13 @@
+numpy
+pandas
+opencv-python
+pytesseract
+Pillow
+scikit-learn
+nltk
+spacy
+transformers
+torch
+streamlit
+pdf2image
+easyocr
