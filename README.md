@@ -190,5 +190,4 @@ This project is developed for **academic and research purposes only**.
 - OpenCV Community
 - Streamlit Team
 - Open-source AI research community
-## 🧩 System Architecture
 
