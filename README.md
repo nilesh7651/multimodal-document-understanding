@@ -1,98 +1,52 @@
-# Multimodal Document Understanding System  
-### Using Natural Language Processing (NLP) and Computer Vision (CV)
+# 📄 Multimodal Document Understanding System
+
+An AI-powered web application that helps users **understand documents** by extracting text, classifying document types, and providing **confidence-aware predictions**.  
+Built using **OCR + NLP + Machine Learning + Streamlit**.
 
 ---
 
-## 📌 Project Overview
+## 🚀 Features
 
-In the digital era, large volumes of information exist in the form of unstructured text, scanned documents, and images. Extracting meaningful insights from such data manually is time-consuming and inefficient.
-
-This project presents a **Multimodal Document Understanding System** that combines **Natural Language Processing (NLP)** and **Computer Vision (CV)** to automatically extract, understand, and analyze information from **text documents, images, and scanned PDFs**.
-
-The system primarily focuses on **NLP-based text understanding**, while **Computer Vision is used as a supporting component** for text extraction through Optical Character Recognition (OCR).
-
----
-
-## 🎯 Objectives
-
-- Extract text from images and scanned PDFs using OCR  
-- Perform intelligent text analysis using NLP techniques  
-- Support multiple NLP tasks:
-  - Text Classification
-  - Text Summarization
-  - Question Answering
-  - Named Entity Recognition (NER)
-- Provide a user-friendly web interface
-- Design a domain-independent and scalable system  
+- 📸 Upload **Images & PDFs**
+- 🔍 OCR-based text extraction
+- 🧠 Hybrid document classification
+  - TF-IDF + Logistic Regression (fast)
+  - BERT-based classifier (accurate)
+- 📊 Confidence score for predictions
+- ⚡ Rule-based boosting for better accuracy
+- 🔊 Read-aloud (Text-to-Speech)
+- 🌐 Clean Streamlit web interface
 
 ---
-## 🧩 System Architecture
 
-User Input (Text / Image / PDF)
+## 🏗️ Architecture Overview
+
+User
 ↓
-Computer Vision (OCR)
+Streamlit Web App
 ↓
-Text Preprocessing
+OCR (Image / PDF)
 ↓
-NLP Pipeline
+Hybrid NLP Classifier
+├── TF-IDF (Fast)
+└── BERT (Accurate)
 ↓
-Analysis & Predictions
-↓
-Web Interface
+Document Type + Confidence
 
 yaml
 Copy code
 
 ---
 
-## 🛠️ Technologies Used
+## 📄 Supported Document Types
 
-### Programming Language
-- Python 3.x
+- Finance (Invoices, Bills, Payments)
+- Legal (Notices, Court Documents)
+- Medical (Reports, Prescriptions)
+- Resume / CV
+- Technical Documents
 
-### Natural Language Processing
-- HuggingFace Transformers
-- spaCy
-- NLTK
-- scikit-learn
-
-### Computer Vision
-- OpenCV
-- Tesseract OCR / EasyOCR
-
-### Deep Learning Framework
-- PyTorch
-
-### Web Framework
-- Streamlit
-
-### Tools & Platforms
-- Jupyter Notebook
-- Google Colab
-- Git & GitHub
-
----
-
-## 🔍 Features
-
-### 1. Optical Character Recognition (OCR)
-- Extracts text from images and scanned documents
-- Uses image preprocessing to improve OCR accuracy
-
-### 2. Text Classification
-- Classifies documents into predefined categories
-- Supports traditional ML and transformer-based models
-
-### 3. Text Summarization
-- Generates concise summaries of long documents
-- Supports extractive and abstractive summarization
-
-### 4. Question Answering System
-- Allows users to ask questions related to document content
-- Returns context-aware answers
-
-### 5. Named Entity Recognition (NER)
-- Identifies important entities such as names, dates, organizations, and numerical values
+If confidence is low, the system safely labels the result as **“Uncertain”**.
 
 ---
 
@@ -100,94 +54,113 @@ Copy code
 
 multimodal-document-understanding/
 │
-├── data/
-│ ├── raw/
-│ ├── processed/
-│
-├── notebooks/
-│ ├── eda.ipynb
-│ ├── nlp_models.ipynb
-│ ├── ocr_processing.ipynb
-│
 ├── src/
+│ ├── streamlit_app.py
 │ ├── ocr/
 │ │ └── ocr_engine.py
-│ │
-│ ├── nlp/
-│ │ ├── preprocessing.py
-│ │ ├── classification.py
-│ │ ├── summarization.py
-│ │ ├── qa.py
-│ │ └── ner.py
-│ │
-│ └── app.py
+│ └── nlp/
+│ └── document_classifier.py
+│
+├── models/
+├── data/
+│ ├── raw/
+│ └── audio/
 │
 ├── requirements.txt
-├── README.md
-└── report/
-└── project_report.pdf
+├── .gitignore
+└── README.md
 
 yaml
 Copy code
 
 ---
 
-## 📊 Datasets
+## ⚙️ Installation
 
-This project is designed to be **domain-flexible** and supports multiple datasets:
-- Public NLP datasets (Kaggle, UCI, HuggingFace)
-- Document-based datasets (articles, resumes, invoices)
-- Custom scanned documents and images
+### 1️⃣ Clone Repository
 
----
+```bash
+git clone https://github.com/your-username/multimodal-document-understanding.git
+cd multimodal-document-understanding
+2️⃣ Create Virtual Environment
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate   # Linux / macOS
+venv\Scripts\activate      # Windows
+3️⃣ Install Dependencies
+bash
+Copy code
+pip install -r requirements.txt
+4️⃣ Run the App
+bash
+Copy code
+streamlit run src/streamlit_app.py
+Open in browser:
 
-## 📈 Evaluation Metrics
+arduino
+Copy code
+http://localhost:8501
+🧪 How to Use
+Upload an image or PDF
 
-- Accuracy, Precision, Recall, F1-score (Classification)
-- ROUGE Score (Summarization)
-- Exact Match / F1-score (Question Answering)
-- OCR accuracy comparison before and after preprocessing
+Choose classification mode:
 
----
+Standard (Fast) – TF-IDF
 
-## 🌐 Web Application
+Advanced (BERT) – More accurate
 
-A Streamlit-based web application allows users to:
-- Upload text files, images, or PDFs
-- Select NLP tasks such as summarization or classification
-- View results instantly through an interactive interface
+Click Analyze Document
 
----
+View:
 
-## 🚀 Future Enhancements
+Extracted text
 
-- Multilingual document support
-- Handwritten text recognition
-- Voice-based query input
-- Cloud deployment
-- Domain-specific fine-tuned transformer models
+Document type
 
----
+Confidence score
 
-## 👨‍🎓 Academic Relevance
+Use Read Aloud if needed
 
-This project is suitable for:
-- Final Year B.Tech (AI/ML) projects
-- Demonstrating real-world AI applications
-- Understanding multimodal AI systems combining NLP and CV
+🧠 Confidence-Aware Prediction
+Each prediction includes a confidence score
 
----
+Low-confidence outputs are marked as Uncertain
 
-## 📜 License
+Improves reliability and user trust
 
-This project is developed for **academic and research purposes only**.
+🧰 Tech Stack
+Python
 
----
+Streamlit
 
-## ⭐ Acknowledgements
+OpenCV
 
-- HuggingFace Transformers
-- OpenCV Community
-- Streamlit Team
-- Open-source AI research community
+PyMuPDF
+
+Scikit-learn
+
+Transformers (BERT)
+
+PyTorch
+
+gTTS
+
+⚠️ Limitations
+OCR accuracy depends on document quality
+
+BERT mode may be slow on low-memory systems
+
+Streamlit Cloud may limit OCR support
+
+🌍 Deployment
+Designed for Streamlit Community Cloud
+
+Can be extended to:
+
+FastAPI backend
+
+MERN-based frontend
+
+SaaS deployment
 
